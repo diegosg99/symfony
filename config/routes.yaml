@@ -1,0 +1,6 @@
+index:
+    path: /
+    controller: App\Controller\ArticleController::homepage
+new:
+    path: /news/{notice}
+    controller: App\Controller\ArticleController::show
