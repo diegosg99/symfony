@@ -16,15 +16,15 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class ArticleController extends AbstractController
 {
     /**
-     * @Route("/")
+     * @Route("/", name="index")
      */
     public function homepage(){
-        $html = ``;
-        return new Response($html);
+        $html = "BOMBA";
+        return $this->render("article/homepage.html.twig");
     }
 
     /**
-     * @Route("/news/{notice}")
+     * @Route("/news/{notice}", name ="new")
      */
     public function show($notice)
     {
