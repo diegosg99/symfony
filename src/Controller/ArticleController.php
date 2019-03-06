@@ -11,8 +11,9 @@ namespace App\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class ArticleController
+class ArticleController extends AbstractController
 {
     /**
      * @Route("/")
@@ -27,6 +28,12 @@ class ArticleController
      */
     public function show($notice)
     {
-        return new Response(sprintf('El articulo es: %s', $notice));
+        $comments = ['Que sería de internet sin LoremIpsum',
+            'El Lorem este no vale pana socioo',
+            'Podrian aprovechas y poner un texto que aporte valores...'];
+        return $this->render('article/show.html.twig', [
+            'title' => ucwords(str_replace('-',' ', $notice)),
+            'comments' => $comments,
+        ]);
     }
 }
