@@ -4,3 +4,7 @@ index:
 new:
     path: /news/{notice}
     controller: App\Controller\ArticleController::show
+article_toggle_heart:
+    path: /news/{notice}/heart
+    controller: App\Controller\ArticleController::toggleArticleHeart
+    methods: POST
