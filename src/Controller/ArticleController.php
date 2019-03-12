@@ -31,7 +31,8 @@ class ArticleController extends AbstractController
     {
         $comments = ['Que sería de internet sin LoremIpsum',
             'El Lorem este no vale pana socioo',
-            'Podrian aprovechas y poner un texto que aporte valores...'];
+            'Podrian aprovechas y poner un texto que aporte valores...',
+            'el loremipsum ese loko yo lo conocí era to wena ente hermano'];
         return $this->render('article/show.html.twig', [
             'title' => ucwords(str_replace('-',' ', $notice)),
             'comments' => $comments,
@@ -43,7 +44,6 @@ class ArticleController extends AbstractController
      */
     public function toggleArticleHeart($notice)
     {
-        return new JsonResponse(['hearts' => rand(5,100)]);
+        return new JsonResponse(['hearts' => rand(5, 100)]);
     }
-
 }

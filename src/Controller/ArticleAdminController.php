@@ -5,6 +5,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Request;
 class ArticleAdminController extends AbstractController
 {
     /**
@@ -43,5 +44,22 @@ EOF
             $article->getId(),
             $article->getNotice()
         ));
+    }
+    /**
+     * @Route("/admin/article/post", name ="upload_post", methods={"POST"})
+     */
+    public function post(Request $data, EntityManagerInterface $em){
+        $article = new Article();
+        $title = $data->get('title');
+        $content = $data->get('content');
+
+        $post = [$title,$content];
+
+        $article->setTitle($post[0])
+            ->setNotice($post[0].rand(100, 999))
+            ->setContent($content);
+        $em->persist($article);
+        $em->flush();
+
     }
 }
