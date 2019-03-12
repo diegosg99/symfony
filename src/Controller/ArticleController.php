@@ -8,7 +8,7 @@
 
 namespace App\Controller;
 
-
+use App\Entity\Article;
 use Psr\Container\ContainerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
@@ -29,6 +29,7 @@ class ArticleController extends AbstractController
      */
     public function show($notice)
     {
+        $article = $this->getDoctrine()->getRepository(Article::class)->find($notice);
         $comments = ['Que sería de internet sin LoremIpsum',
             'El Lorem este no vale pana socioo',
             'Podrian aprovechas y poner un texto que aporte valores...',

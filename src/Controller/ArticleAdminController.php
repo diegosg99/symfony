@@ -62,4 +62,13 @@ EOF
         $em->flush();
 
     }
+    /**
+     * @Route("/admin/article/get", name ="get_post", methods={"GET"})
+     */
+    public function getArticles(){
+
+        $articles = $this->getDoctrine()->getRepository(Article::class)->findAll();
+        return $this->render('article/list.html.twig', array('articles' => $articles));
+
+    }
 }

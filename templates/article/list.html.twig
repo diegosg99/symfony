@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="show-article-container p-3 mt-4">
+                    <div class="row">
+                        {% for article in articles %}
+                        <div class="col-sm-12">
+                            <img class="show-article-img" src="{{ asset('images/asteroid.jpeg') }}">
+                            <div class="show-article-title-container d-inline-block pl-3 align-middle">
+                                <a href="/news/{{ article.notice }}"><span class="show-article-title ">{{ article.title }}</span></a>
+                                <br>
+                                <span class="show-article-container ">{{ article.content }}</span>
+
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/article_show.js') }}"></script>
+{% endblock %}
