@@ -3,20 +3,20 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-                <div class="show-article-container p-3 mt-4">
-                    <div class="row">
+                <div class="col-sm-12 col-md-8">
                         {% for article in articles %}
-                        <div class="col-sm-12">
-                            <img class="show-article-img" src="{{ asset('images/asteroid.jpeg') }}">
-                            <div class="show-article-title-container d-inline-block pl-3 align-middle">
-                                <a href="/news/{{ article.notice }}"><span class="show-article-title ">{{ article.title }}</span></a>
-                                <br>
-                                <span class="show-article-container ">{{ article.content }}</span>
-
+                            <div class="article-container my-1">
+                                <a href="{{ path('new', {notice: article.notice}) }}">
+                                    <img class="article-img" src="{{ asset('images/asteroid.jpeg') }}">
+                                    <div class="article-title d-inline-block pl-3 align-middle">
+                                        <span>{{ article.title }}</span>
+                                        <br>
+                                        <span class="align-left article-details"><img class="article-author-img rounded-circle" src="{{ asset('images/alien-profile.png') }}"> Mike Ferengi </span>
+                                        <span class="pl-5 article-details float-right"> 3 hours ago</span>
+                                    </div>
+                                </a>
                             </div>
-                        </div>
-                    </div>
-                    {% endfor %}
+                        {% endfor %}
                 </div>
             </div>
         </div>

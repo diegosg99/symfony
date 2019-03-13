@@ -29,15 +29,19 @@ class ArticleController extends AbstractController
      */
     public function show($notice)
     {
-        $article = $this->getDoctrine()->getRepository(Article::class)->find($notice);
+        $article = $this->getDoctrine()->getRepository(Article::class)->findBy(array('notice'=>$notice));
+        $title = $article->getTitle();
+        $content = $article->getContent();
+
         $comments = ['Que sería de internet sin LoremIpsum',
             'El Lorem este no vale pana socioo',
             'Podrian aprovechas y poner un texto que aporte valores...',
             'el loremipsum ese loko yo lo conocí era to wena ente hermano'];
         return $this->render('article/show.html.twig', [
-            'title' => ucwords(str_replace('-',' ', $notice)),
+            'title' => $title,
             'comments' => $comments,
-            'notice' => $notice
+            'notice' => $notice,
+            'content' => $content
         ]);
     }
     /**
