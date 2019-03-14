@@ -9,20 +9,20 @@
             <div class="col-sm-12 col-md-8">
 
                 <!-- H1 Article -->
-                <a class="main-article-link" href="#">
+                <a class="main-article-link" href="{{ path('new', {notice: head.notice}) }}">
                     <div class="main-article mb-5 pb-3">
                         <img src="{{ asset('images/meteor-shower.jpg') }}" alt="meteor shower">
-                        <h1 class="text-center mt-2">{{  }}<br>¿Es posible?</h1>
+                        <h1 class="text-center mt-2">{{ head.title }}</h1>
                     </div>
                 </a>
 
                 <!-- Supporting Articles -->
 
                 <div class="article-container my-1">
-                    <a href="{{ path('new', {notice: "Oumuamua vuelve"}) }}">
+                    <a href="{{ path('new', {notice: trending1.notice}) }}">
                         <img class="article-img" src="{{ asset('images/asteroid.jpeg') }}">
                         <div class="article-title d-inline-block pl-3 align-middle">
-                            <span>Why do Asteroids Taste Like Bacon?</span>
+                            <span>{{ trending1.title }}</span>
                             <br>
                             <span class="align-left article-details"><img class="article-author-img rounded-circle" src="{{ asset('images/alien-profile.png') }}"> Mike Ferengi </span>
                             <span class="pl-5 article-details float-right"> 3 hours ago</span>
@@ -31,10 +31,10 @@
                 </div>
 
                 <div class="article-container my-1">
-                    <a href="#">
+                    <a href="{{ path('new', {notice: trending2.notice}) }}">
                         <img class="article-img"  src="{{ asset('images/mercury.jpeg') }}">
                         <div class="article-title d-inline-block pl-3 align-middle">
-                            <span>Life on Planet Mercury: <br> Tan, Relaxing and Fabulous</span>
+                            <span>{{ trending2.title }}</span>
                             <br>
                             <span class="align-left article-details"><img class="article-author-img rounded-circle" src="{{ asset('images/astronaut-profile.png') }}"> Amy Oort </span>
                             <span class="pl-5 article-details float-right"> 6 days ago</span>
@@ -43,10 +43,10 @@
                 </div>
 
                 <div class="article-container my-1">
-                    <a href="#">
+                    <a href="{{ path('new', {notice: trending3.notice}) }}">
                         <img class="article-img" src="{{ asset('images/lightspeed.png') }}">
                         <div class="article-title d-inline-block pl-3 align-middle">
-                            <span>Light Speed Travel: <br> Fountain of Youth or Fallacy</span>
+                            <span>{{ trending3.title }}</span>
                             <br>
                             <span class="align-left article-details"><img class="article-author-img rounded-circle" src="{{ asset('images/astronaut-profile.png') }}"> Amy Oort </span>
                             <span class="pl-5 article-details float-right"> 2 weeks ago</span>

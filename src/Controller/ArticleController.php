@@ -25,8 +25,10 @@ class ArticleController extends AbstractController
 
         $articles = $this->getDoctrine()->getRepository(Article::class)->findAll();
         $head = $articles[0];
-        $trending = [$articles[0]->ge];
-        return $this->render('article/homepage.html.twig', array('articles' => $articles));
+        $trending1 = $articles[1];
+        $trending2 = $articles[2];
+        $trending3 = $articles[3];
+        return $this->render('article/homepage.html.twig', array('trending1' => $trending1,'trending2' => $trending2,'trending3' => $trending3, 'head' => $head));
     }
 
     /**

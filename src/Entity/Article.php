@@ -36,12 +36,6 @@ class Article
      */
     private $publishedAt;
 
-    /**
-     * @ORM\Likes()
-     * @ORM\Column(type="integer")
-     */
-    private $likes;
-
     public function getId(): ?int
     {
         return $this->id;
