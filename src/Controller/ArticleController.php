@@ -9,6 +9,7 @@
 namespace App\Controller;
 
 use App\Entity\Article;
+use Doctrine\ORM\EntityManagerInterface;
 use Psr\Container\ContainerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
@@ -30,9 +31,13 @@ class ArticleController extends AbstractController
     public function show($notice)
     {
         $article = $this->getDoctrine()->getRepository(Article::class)->findBy(array('notice'=>$notice));
-        $title = $article->getTitle();
-        $content = $article->getContent();
-
+        if (!$article){
+            throw $this->createNotFoundException(
+              'No se ha encontrado el articulo'
+            );
+        }
+        $title = $article[0]->getTitle();
+        $content = $article[0]->getContent();
         $comments = ['Que sería de internet sin LoremIpsum',
             'El Lorem este no vale pana socioo',
             'Podrian aprovechas y poner un texto que aporte valores...',
