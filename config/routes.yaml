@@ -11,3 +11,6 @@ article_toggle_heart:
 article_new:
     path: /admin/article/new
     controller: App\Controller\ArticleAdminController::new
+get_post:
+    path: /admin/article/get
+    controller: App\Controller\ArticleAdminController::getArticles

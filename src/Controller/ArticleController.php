@@ -22,7 +22,11 @@ class ArticleController extends AbstractController
      * @Route("/", name="index")
      */
     public function homepage(){
-        return $this->render("article/homepage.html.twig");
+
+        $articles = $this->getDoctrine()->getRepository(Article::class)->findAll();
+        $head = $articles[0];
+        $trending = [$articles[0]->ge];
+        return $this->render('article/homepage.html.twig', array('articles' => $articles));
     }
 
     /**

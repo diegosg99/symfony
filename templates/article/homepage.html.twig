@@ -12,7 +12,7 @@
                 <a class="main-article-link" href="#">
                     <div class="main-article mb-5 pb-3">
                         <img src="{{ asset('images/meteor-shower.jpg') }}" alt="meteor shower">
-                        <h1 class="text-center mt-2">Limpiarse el culo a una velocidad estelar<br>¿Es posible?</h1>
+                        <h1 class="text-center mt-2">{{  }}<br>¿Es posible?</h1>
                     </div>
                 </a>
 
@@ -65,12 +65,12 @@
 
                     <p class="pt-4"><i class="fa fa-comment"></i> "Los usuarios podrán comentar o responder las dudas que expongas, o simplemete comparte una experiencia." <br></p>
                     <br>Aqui deberias contar lo que tre plazca.
-                    <form action="post" method="get">
-                        <input class="form-control mr-sm-2"  name="content" type="search" placeholder="Título del post" aria-label="Search">
+                    <form action="{{ path('upload_post') }}" method="POST">
+                        <input class="form-control mr-sm-2"  name="title" type="search" placeholder="Título del post" aria-label="Search">
                         <br>
                         <textarea class="pt-4" rows="5" cols="20" name="content">
 Aqui deberias contar lo que tre plazca.</textarea>
-                        <button class="btn btn-info my-2 my-sm-0" type="submit" name="publicar" onclick="{{ path('upload_post') }}">Publicar</button>
+                        <button class="btn btn-info my-2 my-sm-0" type="submit" name="publicar">Publicar</button>
                     </form>
                 </div>
             </div>
